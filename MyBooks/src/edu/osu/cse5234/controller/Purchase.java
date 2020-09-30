@@ -21,10 +21,36 @@ public class Purchase {
 	@RequestMapping(path = "/orderEntry", method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Order order = new Order();
-		List<Item> items = new ArrayList<Item>();
+		List<Item> books = new ArrayList<Item>();
 		
-		// FINISH NUMBER 5 HERE //
+		Item book1 = new Item();
+		book1.setName("Catcher in the Rye");
+		book1.setPrice("$5.99");
+		books.add(book1);
+		
+		Item book2 = new Item();
+		book1.setName("Educated");
+		book1.setPrice("$15.17");
+		books.add(book2);
+		
+		Item book3 = new Item();
+		book1.setName("Where the Crawdads Sing");
+		book1.setPrice("$11.00");
+		books.add(book3);
+		
+		Item book4 = new Item();
+		book1.setName("Little Fires Everywhere");
+		book1.setPrice("$12.75");
+		books.add(book4);
+		
+		Item book5 = new Item();
+		book1.setName("The Color Purple");
+		book1.setPrice("$9.50");
+		books.add(book5);
 
+		order.setItemList(books);
+		
+		request.setAttribute("order", order);
 		
 		return "OrderEntryForm";
 	}
