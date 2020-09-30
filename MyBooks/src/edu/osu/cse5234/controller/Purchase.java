@@ -70,38 +70,38 @@ public class Purchase {
 	@RequestMapping(path = "/submitPayment", method = RequestMethod.POST)
 	public String submitPayment(@ModelAttribute("order") Order order, HttpServletRequest request) {
 		request.getSession().setAttribute("order", order);
-		return "redirect:/purchase/paymentEntry";
+		return "redirect:/purchase/shippingEntry";
 	}
 	
 	@RequestMapping(path = "/shippingEntry", method = RequestMethod.GET)
 	public String viewShippingEntryForm(HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("payment", new PaymentInfo());	
-		return "PaymentEntryForm";
+		return "ShippingEntryForm";
 	}
 	
 	@RequestMapping(path = "/submitShipping", method = RequestMethod.POST)
 	public String submitShipping(@ModelAttribute("order") Order order, HttpServletRequest request) {
 		request.getSession().setAttribute("order", order);
-		return "redirect:/purchase/paymentEntry";
+		return "redirect:/purchase/viewOrder";
 	}
 	
 	@RequestMapping(path = "/viewOrder", method = RequestMethod.GET)
 	public String viewOrder(HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("payment", new PaymentInfo());	
-		return "PaymentEntryForm";
+		return "ViewOrder";
 	}
 	
 	@RequestMapping(path = "/confirmOrder", method = RequestMethod.POST)
 	public String confirmOrder(@ModelAttribute("order") Order order, HttpServletRequest request) {
 		request.getSession().setAttribute("order", order);
-		return "redirect:/purchase/paymentEntry";
+		return "redirect:/purchase/paymentConfirmation";
 	}
 	
 	
 	@RequestMapping(path = "/paymentConfirmation", method = RequestMethod.GET)
 	public String viewConfirmation(HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("payment", new PaymentInfo());	
-		return "PaymentEntryForm";
+		return "Confirmation";
 	}
 
 }
