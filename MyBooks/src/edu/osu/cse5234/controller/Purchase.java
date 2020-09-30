@@ -97,7 +97,6 @@ public class Purchase {
 		return "redirect:/purchase/paymentConfirmation";
 	}
 	
-	
 	@RequestMapping(path = "/paymentConfirmation", method = RequestMethod.GET)
 	public String viewConfirmation(HttpServletRequest request, HttpServletResponse response) {
 		request.setAttribute("payment", new PaymentInfo());	
