@@ -8,6 +8,7 @@
 
 </head>
 <body>
-	<pre>Confirmation</pre>
+	<pre>Thank you for your order! Your items have been shipped.</pre>
+	<p>CONFIRMATION: ER32T410S</p>
 </body>
 </html>
