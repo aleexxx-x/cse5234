@@ -3,10 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="../css/mystyle.css" type="text/css">
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
 </head>
 <body>
-
+<br/><br/>
+<center>
+   <p>Copyright © 2020</p>
+</center>
 </body>
 </html>
