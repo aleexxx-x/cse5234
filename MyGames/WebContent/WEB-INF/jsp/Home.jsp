@@ -8,7 +8,7 @@
 <title>Home Page</title>
 </head>
 <body>
-<jsp:include page="header.jsp"/>
-<jsp:include page="footer.jsp"/>
+<jsp:include page="Header.jsp"/>
+<jsp:include page="Footer.jsp"/>
 </body>
 </html>
