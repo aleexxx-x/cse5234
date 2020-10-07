@@ -15,6 +15,6 @@ public class HomeController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String forwardToHome(HttpServletRequest request, HttpServletResponse response) {
 //		request.setAttribute("shipping", new ShippingInfo());	
-		return "home";
+		return "Home";
 	}
 }
