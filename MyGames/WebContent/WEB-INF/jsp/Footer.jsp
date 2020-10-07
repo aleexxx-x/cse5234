@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="../css/mystyle.css" type="text/css">
-<meta charset="ISO-8859-1">
+<link href="../css/custom.css" type="text/css">
 </head>
 <body>
 <br/><br/>
