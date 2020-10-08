@@ -15,13 +15,15 @@ body {
 
 .header {
 	font-family: "Lato", sans-serif;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	background-color: #F2F2F2;
+	color: #424242;
 }
 
 .mySlides {display: none}
 
-.body {
-	margin: 10px;
-}
 
 .footer {
 	clear: both;

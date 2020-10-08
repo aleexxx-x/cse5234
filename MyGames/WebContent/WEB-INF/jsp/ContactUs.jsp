@@ -43,7 +43,7 @@
         <h2>Soumava Banjeree</h2>
         <p class="jobTitle">Co-Founder and Marketing Chair</p>
         <ul class="personalContact">
-        	<li>Phone: (614) 123-1212</li>
+        	<li>Phone: (614) 619-1245</li>
         	<li>E-Mail: banjeree.180@osu.edu</li>
         </ul>
       </div>

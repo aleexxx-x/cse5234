@@ -7,21 +7,19 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Header JSP</title>
-</head>
-<spring:url value="/js/headerJS.js" var="headerJS" />
-<link rel="stylesheet" href="../css/mystyle.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
 <body class="header">
     <!-- Navbar -->
 <div class="w3-top">
   <div class="w3-bar w3-black w3-card">
     <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a href="" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-    <a href="aboutUs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">ABOUT US</a>
-    <a href="contactUs" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small" id="aboutus">ABOUT US</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small" id="contactus">CONTACT</a>
 <!--     <!div class="w3-dropdown-hover w3-hide-small"> -->
 <!--       <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>      -->
 <!--       <div class="w3-dropdown-content w3-bar-block w3-card-4"> -->
@@ -43,6 +41,7 @@
 
 
 </body>
+<script type="text/javascript" src="../../js/headerJS.js"></script>
 </html>
 
 

@@ -19,7 +19,7 @@
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="/w3images/team1.jpg" alt="Alex" style="width:100%">
+      <img src="/images/team1.jpg" alt="Alex" style="width:100%">
       <div class="container">
         <h2>Alexandria Howell</h2>
         <p class="jobTitle">Co-Founder and Game Designer</p>
@@ -35,15 +35,15 @@
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <img src="/images/team2.jpg" alt="Soumava" style="width:100%">
       <div class="container">
         <h2>Soumava Banjeree</h2>
         <p class="jobTitle">Co-Founder and Marketing Chair</p>
-        <p class="education">Education</p>
+        <p class="education">M.S. in Computer Science and Engineering from the Ohio State University, class of 2021</p>
         <ul class="experience">
-        	<li>Experience 1</li>
-        	<li>Experience 2</li>
-        	<li>Experience 3</li>
+        	<li>Machine Learning Intern at Astute Solutions</li>
+        	<li>Analyst at Goldman Sachs &amp; Co.</li>
+        	<li>Summer Analyst at Goldman Sachs &amp; Co.</li>
         </ul>
       </div>
     </div>
@@ -51,5 +51,4 @@
  </div>
 
 <jsp:include page="Footer.jsp"/>
-</body>
 </html>
