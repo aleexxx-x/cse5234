@@ -14,12 +14,10 @@ body {
 }
 
 .header {
-	padding: 10px;
-	width: 100%;
-	text-align: center;
-	background-color: #F2F2F2;
-	color: #424242;
+	font-family: "Lato", sans-serif;
 }
+
+.mySlides {display: none}
 
 .body {
 	margin: 10px;

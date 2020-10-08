@@ -13,8 +13,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 public class HomeController {
 	@RequestMapping(method = RequestMethod.GET)
-	public String forwardToHome(HttpServletRequest request, HttpServletResponse response) {
-//		request.setAttribute("shipping", new ShippingInfo());	
+	public String forwardToHome(HttpServletRequest request, HttpServletResponse response) {	
 		return "Home";
+	}
+	
+	@RequestMapping(path = "/aboutUs", method = RequestMethod.GET)
+	public String forwardToAboutUs(HttpServletRequest request, HttpServletResponse response) {
+		return "AboutUs";
+	}
+	
+	@RequestMapping(path = "/contactUs", method = RequestMethod.GET)
+	public String forwardToContactUs(HttpServletRequest request, HttpServletResponse response) {	
+		return "ContactUs";
 	}
 }
