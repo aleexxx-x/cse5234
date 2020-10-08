@@ -24,7 +24,7 @@
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="/w3images/team1.jpg" alt="Alex" style="width:100%">
+      <img src="../images/alex.jpg" alt="Alex" style="width:100%">
       <div class="container">
         <h2>Alexandria Howell</h2>
         <p class="jobTitle">Co-Founder and Game Designer</p>
@@ -38,7 +38,7 @@
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+      <img src="../images/test.jpg" alt="Mike" style="width:100%">
       <div class="container">
         <h2>Soumava Banjeree</h2>
         <p class="jobTitle">Co-Founder and Marketing Chair</p>
