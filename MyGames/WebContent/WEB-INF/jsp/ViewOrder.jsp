@@ -91,7 +91,7 @@ th {
 		</tr>
 	</table> 
 	   	<br /> <br />
-		<div style="font-family: Trebuchet MS; font-size: 25pt;" colspan="2"><input type="submit" value="Confirm"></div>
+		<div style="font-family: Trebuchet MS; font-size: 25pt;"><input type="submit" value="Confirm"></div>
 </form:form>
 </div>
 </body>
