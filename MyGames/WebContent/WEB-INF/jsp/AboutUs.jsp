@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link rel="stylesheet" href="../css/mystyle.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/css/mystyle.css">
 <title>About Us</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="<%= request.getContextPath() %>/images/alex.jpg" alt="Alex" style="width:100%">
+      <img src="<%= request.getContextPath() %>/images/alex.jpg" alt="Alex" style="width:66%">
       <div class="container">
         <h2>Alexandria Howell</h2>
         <p class="jobTitle">Co-Founder and Game Designer</p>
@@ -35,7 +35,7 @@
 
   <div class="column">
     <div class="card">
-      <img src="/images/test.jpg" alt="Soumava" style="width:100%">
+      <img src="<%= request.getContextPath() %>/images/test.jpg" alt="Soumava" style="width:66%">
       <div class="container">
         <h2>Soumava Banjeree</h2>
         <p class="jobTitle">Co-Founder and Marketing Chair</p>
