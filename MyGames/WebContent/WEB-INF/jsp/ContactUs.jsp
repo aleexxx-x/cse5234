@@ -38,7 +38,7 @@
 
   <div class="column">
     <div class="card">
-      <img src="<%= request.getContextPath() %>/images/test.jpg" alt="Alex" style="width:66%">
+      <img src="<%= request.getContextPath() %>/images/soumava.jpg" alt="Alex" style="width:66%">
       <div class="container">
         <h2>Soumava Banjeree</h2>
         <p class="jobTitle">Co-Founder and Marketing Chair</p>
