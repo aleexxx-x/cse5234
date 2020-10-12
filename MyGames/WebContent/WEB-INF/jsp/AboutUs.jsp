@@ -12,7 +12,7 @@
 <div class="aboutUsIntro">
   <h1>About Us</h1>
   <p>Our team is devoted and passionate about supplying you with the best games possible, 
-  check out below to learn more about our back stories!</p>
+  check out below to learn more about our back stories and why you should invest in our cause!</p>
 </div>
 
 <h2 style="text-align:center">Our Team</h2>
