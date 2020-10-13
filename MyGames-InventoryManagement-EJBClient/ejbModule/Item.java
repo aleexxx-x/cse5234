@@ -1,4 +1,4 @@
-package edu.osu.cse5234.model;
+
 
 public class Item {
 	public String name;

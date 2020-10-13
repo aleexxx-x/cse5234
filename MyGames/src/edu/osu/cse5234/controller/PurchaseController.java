@@ -23,10 +23,7 @@ public class PurchaseController {
 	@RequestMapping(path= "/orderEntry", method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// ... instantiate and set order object with items to display
-		Order order = new Order();
-		Item[] itemArray = {new Item("Batman Returns!", "100"), new Item("PUBG!", "200"), new Item("CSGO", "300")};
-		List<Item> itemList = (List<Item>) Arrays.asList(itemArray);
-		order.setItems(itemList);
+		
 		request.setAttribute("order", order);
 		return "OrderEntryForm";
 	}
