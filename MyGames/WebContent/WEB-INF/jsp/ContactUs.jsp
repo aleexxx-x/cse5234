@@ -11,7 +11,7 @@
 <jsp:include page="Header.jsp"/>
 <div class="aboutUsIntro">
   <h1>Contact Us</h1>
-  <p>Do you want to learn more? Do you want to hear about other opportunities? 
+  <p>Do you want to learn more? Do you want to hear about other opportunities? Do you have any questions or concerns? 
   Reach out to our team with the information below!</p>
   <ul class="companyContact">
      <li>Company Phone: (614) 123-0000</li>
@@ -20,11 +20,9 @@
   </ul>
 </div>
 
-<h2 style="text-align:center">Our Team</h2>
 <div class="row">
   <div class="column">
     <div class="card">
-      <img src="<%= request.getContextPath() %>/images/alex.jpg" alt="Alex" style="width:66%">
       <div class="container">
         <h2>Alexandria Howell</h2>
         <p class="jobTitle">Co-Founder and Game Designer</p>
@@ -38,7 +36,6 @@
 
   <div class="column">
     <div class="card">
-      <img src="<%= request.getContextPath() %>/images/soumava.jpg" alt="Alex" style="width:66%">
       <div class="container">
         <h2>Soumava Banjeree</h2>
         <p class="jobTitle">Co-Founder and Marketing Chair</p>

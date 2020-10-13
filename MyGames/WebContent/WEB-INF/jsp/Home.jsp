@@ -24,7 +24,8 @@ Buckeye Games will provide the opportunity and resources to allow for video gami
 around the Ohio State University campus. By the end of 2021, through the global pandemic 
 and time spent at home- at least 50% of enrolled students will have the financial and 
 physical ability to have access to our games, while still encouraging a profit of 200%. 
-<h2>Check out our Products Below!</h2>
+<h2>Start shopping now and check out our products below!</h2>
+<a href="<%= request.getContextPath() %>/purchase/orderEntry">Start Shopping!</a>
 
 </div>
 <!-- Page content -->
@@ -59,7 +60,6 @@ physical ability to have access to our games, while still encouraging a profit o
     </div>
   </div>
 </div>
-<a href="<%= request.getContextPath() %>/purchase/orderEntry">Start Shopping!</a>
 <jsp:include page="Footer.jsp"/>
 </body>
 </html>
