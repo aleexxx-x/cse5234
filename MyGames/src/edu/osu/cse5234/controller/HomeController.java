@@ -1,6 +1,5 @@
 package edu.osu.cse5234.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,8 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import edu.osu.cse5234.model.Item;
-import edu.osu.cse5234.model.Order;
 
 
 @Controller
