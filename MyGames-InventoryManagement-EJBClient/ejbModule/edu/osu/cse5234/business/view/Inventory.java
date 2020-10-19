@@ -1,6 +1,8 @@
 package edu.osu.cse5234.business.view;
 
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Inventory implements Serializable{
@@ -22,6 +24,11 @@ public class Inventory implements Serializable{
 
 	public void setItems(List<Item> items) {
 		this.items = items;
+	}
+
+	@Override
+	public String toString() {
+		return "Inventory [items=" + Arrays.toString(items.toArray()) + "]";
 	}
 
 	

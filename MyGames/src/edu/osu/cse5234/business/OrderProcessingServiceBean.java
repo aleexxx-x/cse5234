@@ -1,13 +1,9 @@
 package edu.osu.cse5234.business;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 import edu.osu.cse5234.business.view.InventoryService;
-import edu.osu.cse5234.business.view.Item;
 import edu.osu.cse5234.model.Order;
 import edu.osu.cse5234.util.ServiceLocator;
 
@@ -21,16 +17,21 @@ public class OrderProcessingServiceBean {
     /**
      * Default constructor. 
      */
-	public String processOrder(Order order) {
-		InventoryService inventoryService = ServiceLocator.getInventoryService();
-		inventoryService.updateInventory(items)
-		return "#114-5460846-3776203";
-	}
     public OrderProcessingServiceBean() {
         // TODO Auto-generated constructor stub
     }
     
+    public String processOrder(Order order) {
+		System.out.println("Before inventory update="+ServiceLocator.getInventoryService().getAvailableInventory());
+		ServiceLocator.getInventoryService().validateQuantity(order.getItems());
+		System.out.println("I was here");
+		ServiceLocator.getInventoryService().updateInventory(order.getItems());
+		System.out.println("After update inventory="+ServiceLocator.getInventoryService().getAvailableInventory());
+		return "#114-5460846-3776203";
+	}
+    
     public boolean validateItemAvailability(Order order) {
+    	System.out.println("CAll from Validate ORder");
     	return ServiceLocator.getInventoryService().validateQuantity(order.getItems());
     }
 

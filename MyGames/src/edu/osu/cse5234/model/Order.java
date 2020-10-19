@@ -1,5 +1,7 @@
 package edu.osu.cse5234.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import edu.osu.cse5234.business.view.Item;
@@ -8,7 +10,7 @@ public class Order {
 	public List<Item> items;
 	
 	public Order() {
-		
+		this.items = new ArrayList<>();
 	}
 	
 	/**
@@ -22,7 +24,7 @@ public class Order {
 	 * @param items the items to set
 	 */
 	public void setItems(List<Item> items) {
-		this.items = items;
+		this.items.addAll(items);
 	}
 
 	/* (non-Javadoc)
@@ -30,6 +32,6 @@ public class Order {
 	 */
 	@Override
 	public String toString() {
-		return "Order [items=" + items + "]";
+		return "Order [items=" + Arrays.toString(items.toArray()) + "]";
 	}
 }

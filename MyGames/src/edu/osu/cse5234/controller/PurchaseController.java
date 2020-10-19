@@ -2,6 +2,7 @@ package edu.osu.cse5234.controller;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.InventoryService;
+import edu.osu.cse5234.business.view.Item;
 import edu.osu.cse5234.model.Order;
 import edu.osu.cse5234.model.PaymentInfo;
 import edu.osu.cse5234.model.ShippingInfo;
@@ -22,39 +25,54 @@ import edu.osu.cse5234.util.ServiceLocator;
 @Controller
 @RequestMapping("/purchase")
 public class PurchaseController {
+	InventoryService inventoryService = ServiceLocator.getInventoryService();
 
 	@RequestMapping(path= "/orderEntry", method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// ... instantiate and set order object with items to display
-		InventoryService inventoryService = ServiceLocator.getInventoryService();
-		request.setAttribute("order", inventoryService.getAvailableInventory());
+		Inventory inventory = this.inventoryService.getAvailableInventory();
+		List<Item> orderItems = new ArrayList<>();
+		
+		for(Item it: inventory.getItems()) {
+			Item it1 = new Item(it.name, it.price);
+			it1.setQuantity(0);
+			orderItems.add(it1);
+		}
+		
+		
+		//inventory = inventoryService.getAvailableInventory();
+		
+		Order order = new Order();
+		order.setItems(orderItems);
+		
+		System.out.println("Order="+order);
+		System.out.println("Inventory="+inventory);
+		
+		request.setAttribute("order", order);
 		return "OrderEntryForm";
 	}
 
-//	@RequestMapping(path = "/aboutUs", method = RequestMethod.GET)
-//	public String forwardToAboutUs(HttpServletRequest request, HttpServletResponse response) {
-//		return "AboutUs";
-//	}
 	
-	@RequestMapping(path = "/orderEntryFailed", method = RequestMethod.GET)
-	public String viewOrderEntryFormFailed(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.getWriter().println("The order is not valid! Re-take the order!");
-		InventoryService inventoryService = ServiceLocator.getInventoryService();
-		request.setAttribute("order", inventoryService.getAvailableInventory());
-		return "OrderEntryForm";
-	}
 	
 	@RequestMapping(path = "/submitItems", method = RequestMethod.POST)
 	public String submitItems(@ModelAttribute("order") Order order, HttpServletRequest request) {
-		if(!ServiceLocator.getOrderProcessingService().validateItemAvailability(order))
-			return "redirect:/purchase/orderEntryFailed";
+//		System.out.println("Reached inside submitItems");
+		String alertmessage = "Ordering quantity is larger than inventory quantity";
+		
+		if(!ServiceLocator.getOrderProcessingService().validateItemAvailability(order)) {
+			request.getSession().setAttribute("alert", alertmessage);
+			return "redirect:/purchase/orderEntry";
+		}	
+		
+		request.getSession().removeAttribute("alert");
 		request.getSession().setAttribute("order", order);
-		System.out.println("Order inside submitItems=" + order);
+//		System.out.println("Order inside submitItems=" + order);
 		return "redirect:/purchase/paymentEntry";
 	}
 
 	@RequestMapping(path = "/paymentEntry", method = RequestMethod.GET)
 	public String viewPaymentEntryForm(HttpServletRequest request, HttpServletResponse response) {
+		
 		request.setAttribute("payment", new PaymentInfo());
 		return "PaymentEntryForm";
 	}
@@ -84,9 +102,9 @@ public class PurchaseController {
 	}
 
 	@RequestMapping(path = "/confirmOrder", method = RequestMethod.POST)
-	public String confirmOrder(@ModelAttribute("order") Order order, HttpServletRequest request) {
+	public String confirmOrder(HttpServletRequest request) {
+		Order order = (Order) request.getSession().getAttribute("order");
 		String code = ServiceLocator.getOrderProcessingService().processOrder(order);
-		request.getSession().setAttribute("order", order);
 		request.getSession().setAttribute("orderConfirm", code);
 		return "redirect:/purchase/paymentConfirmation";
 	}

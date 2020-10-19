@@ -9,6 +9,6 @@
 <title>Confirmation</title>
 </head>
 <body>
-	<h1 style="color:#7FFF00; font-size:50px;text-align:center;">Congrats!Your order has been placed. ID: <% request.getAttribute("orderConfirm"); %></h1>
+	<h1 style="color:#7FFF00; font-size:50px;text-align:center;">Congrats!Your order has been placed. ID: <%= request.getSession().getAttribute("orderConfirm") %></h1>
 </body>
 </html>

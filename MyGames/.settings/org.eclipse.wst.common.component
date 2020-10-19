@@ -5,6 +5,9 @@
         <dependent-module archiveName="MyGames-InventoryManagement-EJBClient.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MyGames-InventoryManagement-EJBClient/MyGames-InventoryManagement-EJBClient">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="MyGames-InventoryManagement-EJB.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MyGames-InventoryManagement-EJB/MyGames-InventoryManagement-EJB">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/MyGames/build/classes"/>
         <property name="context-root" value="MyGames"/>
     </wb-module>

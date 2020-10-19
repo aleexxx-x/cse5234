@@ -18,16 +18,16 @@ public class Item implements Serializable{
 	public Item(String name, String price) {
 		this.name = name;
 		this.price = price;
-		this.quantity = 0;
+		this.quantity = 100;
 	}
 	
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((price == null) ? 0 : price.hashCode());
-		result = prime * result + quantity;
 		return result;
 	}
 
@@ -44,13 +44,6 @@ public class Item implements Serializable{
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
-			return false;
-		if (price == null) {
-			if (other.price != null)
-				return false;
-		} else if (!price.equals(other.price))
-			return false;
-		if (quantity != other.quantity)
 			return false;
 		return true;
 	}
@@ -80,16 +73,11 @@ public class Item implements Serializable{
 		this.price = price;
 	}
 	
-	/**
-	 * @return the quantity
-	 */
+	
 	public int getQuantity() {
 		return quantity;
 	}
 
-	/**
-	 * @param quantity the quantity to set
-	 */
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
