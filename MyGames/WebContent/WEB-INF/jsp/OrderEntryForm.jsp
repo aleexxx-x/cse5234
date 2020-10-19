@@ -73,7 +73,6 @@ th {
 				<input type="submit" value="Order">
 			</div>
 		</form:form>
-		<p><%= request.getSession().getAttribute("alert") %></p>
 	</div>
 </body>
 </html>
