@@ -13,6 +13,8 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * Session Bean implementation class InventoryServiceBean
@@ -24,6 +26,10 @@ public class InventoryServiceBean implements InventoryService {
      * Default constructor. 
      */
 	Inventory inventory;
+	public static final String MY_QUERY = "Select i from Item i";
+	
+	@PersistenceContext
+	EntityManager entityManager;
 	
     public InventoryServiceBean() {
         // TODO Auto-generated constructor stub
@@ -42,11 +48,25 @@ public class InventoryServiceBean implements InventoryService {
 		this.inventory = inventory;
 		
     }
+    
+	/**
+	 * @return the entityManager
+	 */
+	public EntityManager getEntityManager() {
+		return entityManager;
+	}
+	/**
+	 * @param entityManager the entityManager to set
+	 */
+	public void setEntityManager(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
 
 	@Override
 	public Inventory getAvailableInventory() {
 		// TODO Auto-generated method stub
-		return this.inventory;
+		Inventory available = (Inventory) entityManager.createQuery(MY_QUERY, Item.class).getResultList();
+		return available;
 	}
 
 	@Override
