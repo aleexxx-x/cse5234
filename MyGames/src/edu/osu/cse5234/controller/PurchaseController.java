@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Item;
+import edu.osu.cse5234.model.LineItem;
 import edu.osu.cse5234.model.Order;
 import edu.osu.cse5234.model.PaymentInfo;
 import edu.osu.cse5234.model.ShippingInfo;
@@ -31,10 +32,14 @@ public class PurchaseController {
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// ... instantiate and set order object with items to display
 		Inventory inventory = this.inventoryService.getAvailableInventory();
-		List<Item> orderItems = new ArrayList<>();
+		request.setAttribute("inventory", inventory);
+		
+		List<LineItem> orderItems = new ArrayList<>();
 		
 		for(Item it: inventory.getItems()) {
-			Item it1 = new Item(it.name, it.price);
+			LineItem it1 = new LineItem();
+			it1.setPrice(Double.parseDouble(it.getPrice()));
+			it1.setName(it.getName());
 			it1.setQuantity(0);
 			orderItems.add(it1);
 		}
@@ -79,7 +84,9 @@ public class PurchaseController {
 
 	@RequestMapping(path = "/submitPayment", method = RequestMethod.POST)
 	public String submitPayment(@ModelAttribute("payment") PaymentInfo payment, HttpServletRequest request) {
-		request.getSession().setAttribute("payment", payment);
+		Order order = (Order) request.getSession().getAttribute("order");
+		order.setPaymentInfo(payment);
+//		request.getSession().setAttribute("payment", payment);
 		return "redirect:/purchase/shippingEntry";
 	}
 
@@ -91,7 +98,9 @@ public class PurchaseController {
 
 	@RequestMapping(path = "/submitShipping", method = RequestMethod.POST)
 	public String submitShipping(@ModelAttribute("shipping") ShippingInfo shippingInfo, HttpServletRequest request) {
-		request.getSession().setAttribute("shipping", shippingInfo);
+		Order order = (Order) request.getSession().getAttribute("order");
+		order.setShippingInfo(shippingInfo);
+//		request.getSession().setAttribute("shipping", shippingInfo);
 		return "redirect:/purchase/viewOrder";
 	}
 

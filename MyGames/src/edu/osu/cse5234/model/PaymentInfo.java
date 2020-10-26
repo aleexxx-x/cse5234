@@ -5,6 +5,7 @@ public class PaymentInfo {
 	private String expirationDate;
 	private String cvvCode;
 	private String cardHolderName;
+	private int id;
 	
 	
 	public PaymentInfo() {

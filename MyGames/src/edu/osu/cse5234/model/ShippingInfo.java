@@ -6,6 +6,7 @@ public class ShippingInfo {
 	private String addressLine2;
 	private String city;
 	private String zipcode;
+	private int id;
 	
 	
 	public ShippingInfo() {
