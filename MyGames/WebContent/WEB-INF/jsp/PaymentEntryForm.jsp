@@ -16,11 +16,11 @@
 <h1 align="center">Please provide Payment Details</h1>
 <body>
 <div align="center">
-<form:form modelAttribute="payment" method="post" action="submitPayment">
-	  Credit/Debit Card Number: <form:input path="creditCardNumber" placeholder="1232-4543-6789" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" /> <br /> <br />
-	  Expiration Date:	<form:input  type="date" path="expirationDate" placeholder="mm/dd/yyyy" /> <br /> <br />
-	  CVV: <form:input path="cvvCode" placeholder="123" pattern="[0-9]{3}"/> <br /> <br />
-	  CardHolderName: <form:input path="cardHolderName" /> <br /> <br />
+<form:form modelAttribute="order" method="post" action="submitPayment">
+	  Credit/Debit Card Number: <form:input path="paymentInfo.creditCardNumber" placeholder="1232-4543-6789" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}" /> <br /> <br />
+	  Expiration Date:	<form:input  type="date" path="paymentInfo.expirationDate" placeholder="mm/dd/yyyy" /> <br /> <br />
+	  CVV: <form:input path="paymentInfo.cvvCode" placeholder="123" pattern="[0-9]{3}"/> <br /> <br />
+	  CardHolderName: <form:input path="paymentInfo.cardHolderName" /> <br /> <br />
 	  <input type="submit" value="Submit" />      
 </form:form>
 </div>

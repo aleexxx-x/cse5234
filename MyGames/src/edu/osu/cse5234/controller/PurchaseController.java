@@ -37,15 +37,8 @@ public class PurchaseController {
 		List<LineItem> orderItems = new ArrayList<>();
 		
 		for(Item it: inventory.getItems()) {
-			LineItem it1 = new LineItem();
-			it1.setPrice(Double.parseDouble(it.getPrice()));
-			it1.setName(it.getName());
-			it1.setQuantity(0);
-			orderItems.add(it1);
+			orderItems.add(new LineItem());
 		}
-		
-		
-		//inventory = inventoryService.getAvailableInventory();
 		
 		Order order = new Order();
 		order.setItems(orderItems);

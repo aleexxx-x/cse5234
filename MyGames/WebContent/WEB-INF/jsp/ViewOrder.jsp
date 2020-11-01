@@ -33,9 +33,9 @@ th {
 	<%@page import="edu.osu.cse5234.model.*"%>
 	<%@page import="java.util.*" %>
 	<% Order order = (Order) request.getSession().getAttribute("order");	
-	   PaymentInfo paymentInfo = (PaymentInfo) request.getSession().getAttribute("payment"); 
-	   ShippingInfo shippingInfo = (ShippingInfo) request.getSession().getAttribute("shipping");
-	   List<Item> items = order.getItems();
+	   PaymentInfo paymentInfo = order.getPaymentInfo(); 
+	   ShippingInfo shippingInfo = order.getShippingInfo();
+	   List<LineItem> items = order.getItems();
 	   request.setAttribute("productList", items);
 	   request.setAttribute("paymentInfo", paymentInfo);
 	   request.setAttribute("shippingInfo", shippingInfo);

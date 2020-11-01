@@ -16,12 +16,12 @@
 <h1 align="center">Please provide Shipment Details</h1>
 <body>
 <div align="center">
-<form:form modelAttribute="shipping" method="post" action="submitShipping">
-	  Name: <form:input path="name" placeholder="John Doe" /> <br /> <br />
-	  AddressLine1:	<form:input path="addressLine1" placeholder="1466 Worthington St." /> <br /> <br />
-	  AddressLine2:	<form:input path="addressLine2" placeholder="Apt. D" /> <br /> <br />
-	  City:	<form:input path="city" placeholder="Columbus" /> <br /> <br />
-	  ZipCode: <form:input path="zipcode" placeholder="12345" pattern="[0-9]{5}"/> <br /> <br />
+<form:form modelAttribute="order" method="post" action="submitShipping">
+	  Name: <form:input path="shippingInfo.name" placeholder="John Doe" /> <br /> <br />
+	  AddressLine1:	<form:input path="shippingInfo.addressLine1" placeholder="1466 Worthington St." /> <br /> <br />
+	  AddressLine2:	<form:input path="shippingInfo.addressLine2" placeholder="Apt. D" /> <br /> <br />
+	  City:	<form:input path="shippingInfo.city" placeholder="Columbus" /> <br /> <br />
+	  ZipCode: <form:input path="shippingInfo.zipcode" placeholder="12345" pattern="[0-9]{5}"/> <br /> <br />
 	  <input type="submit" value="Submit" />      
 </form:form>
 </div>

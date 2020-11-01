@@ -3,6 +3,7 @@ package edu.osu.cse5234.business;
 import edu.osu.cse5234.business.view.Inventory;
 import edu.osu.cse5234.business.view.InventoryService;
 import edu.osu.cse5234.business.view.Item;
+import edu.osu.cse5234.model.LineItem;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,9 +37,9 @@ public class InventoryServiceBean implements InventoryService {
     	Inventory inventory = new Inventory();
     	
     	List<Item> inventoryItems = new ArrayList<>();
-    	Item it1 = new Item("PUBG US", "100");
-    	Item it2 = new Item("Fortnite", "300");
-    	Item it3 = new Item("Batman Returns!", "300");
+    	Item it1 = new Item("PUBG", "100", 1, "This is the PUBG Game");
+    	Item it2 = new Item("Fortnite", "200", 2, "This is the Fortnite Game");
+    	Item it3 = new Item("Batman Returns!", "300", 3, "This is the Batman Returns Game");
 		
     	inventoryItems.add(it1);
 		inventoryItems.add(it2);
@@ -70,14 +71,14 @@ public class InventoryServiceBean implements InventoryService {
 	}
 
 	@Override
-	public boolean validateQuantity(List<Item> orderItems) {
+	public boolean validateQuantity(List<LineItem> orderItems) {
 		// TODO Auto-generated method stub
 		
-		for(Item orderItem: orderItems) {
+		for(LineItem orderItem: orderItems) {
 			for(Item inventoryItem: inventory.getItems()) {
-				System.out.println("orderItemName validate ="+orderItem.getName()+"inventoryItemName="+inventoryItem.getName());
+//				System.out.println("orderItemName validate ="+orderItem.getName()+"inventoryItemName="+inventoryItem.getName());
 				if(inventoryItem.getName().equals(orderItem.getName())) {
-					System.out.println(inventoryItem.getName());
+//					System.out.println(inventoryItem.getName());
 					if(inventoryItem.getQuantity() < orderItem.getQuantity()) return false;
 				}
 			}
@@ -87,14 +88,14 @@ public class InventoryServiceBean implements InventoryService {
 	}
 
 	@Override
-	public boolean updateInventory(List<Item> orderItems) {
+	public boolean updateInventory(List<LineItem> orderItems) {
 		// TODO Auto-generated method stub
-		for(Item it: orderItems) {
+		for(LineItem it: orderItems) {
 			for(Item it2: inventory.getItems()) {
-				System.out.println("update orderItemName="+it.getName()+"inventoryItemName="+it2.getName());
+//				System.out.println("update orderItemName="+it.getName()+"inventoryItemName="+it2.getName());
 				if(it.getName().equals(it2.getName())) {
 					it2.setQuantity(it2.getQuantity()-it.getQuantity());
-					System.out.println("Game updated after="+inventory.getItems());
+//					System.out.println("Game updated after="+inventory.getItems());
 				}
 			}
 		}

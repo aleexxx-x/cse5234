@@ -1,14 +1,38 @@
 package edu.osu.cse5234.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="CUSTOMER_ORDER_LINE_ITEM")
+
 public class LineItem {
-	public int id;
-	public int itemNumber;
-	public String name;
-	public double price;
-	public int quantity;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
+	private int id;
+	
+	@Column(name="ITEM_NUMBER")
+	private int itemNumber;
+	
+	@Column(name="ITEM_NAME")
+	private String name;
+	
+	@Transient
+	private double price;
+	
+	@Column(name="QUANTITY")
+	private int quantity;
+	
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -37,6 +61,10 @@ public class LineItem {
 		this.quantity = quantity;
 	}
 	
+	
+	public LineItem() {
+		super();
+	}
 	public LineItem(int id, int itemNumber, String name, double price, int quantity) {
 		super();
 		this.id = id;

@@ -56,14 +56,14 @@ th {
 					<th>Price</th>
 					<th>Quantity</th>
 				</tr>
-				<c:forEach items="${order.items}" var="item" varStatus="loop">
+				<c:forEach items="${inventory.items}" var="item" varStatus="loop">
 					<tr>
-						<td><form:input path="items[${loop.index}].name"
-								readonly="true" size="60" /></td>
-						<td><form:input path="items[${loop.index}].price"
-								readonly="true" /></td>
-						<td><form:input path="items[${loop.index}].quantity"
-												/></td>
+						<td><form:hidden path="lineItems[${loop.index}].name"
+								value="${item.name}" size="60" /></td>
+						<td><form:hidden path="lineItems[${loop.index}].price"
+								value="${item.price}" /></td>
+						<td><form:input path="lineItems[${loop.index}].quantity"
+								/></td>
 					</tr>
 				</c:forEach>
 			</table>
