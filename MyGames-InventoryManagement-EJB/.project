@@ -4,7 +4,6 @@
 	<comment></comment>
 	<projects>
 		<project>MyGames-InventoryManagement-EJBClient</project>
-		<project>MyGames</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

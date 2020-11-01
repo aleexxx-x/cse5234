@@ -4,9 +4,6 @@
         <dependent-module archiveName="MyGames-InventoryManagement-EJBClient.jar" deploy-path="/" handle="module:/resource/MyGames-InventoryManagement-EJBClient/MyGames-InventoryManagement-EJBClient">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="MyGames.war" deploy-path="/" handle="module:/resource/MyGames/MyGames">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
         <property name="java-output-path" value="/MyGames-InventoryManagement-EJB/build/classes"/>
         <property name="ClientProject" value="MyGames-InventoryManagement-EJBClient"/>
         <property name="ClientJARURI" value="MyGames-InventoryManagement-EJBClient.jar"/>

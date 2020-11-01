@@ -71,35 +71,14 @@ public class InventoryServiceBean implements InventoryService {
 	}
 
 	@Override
-	public boolean validateQuantity(List<LineItem> orderItems) {
+	public boolean validateQuantity(List<Item> orderItems) {
 		// TODO Auto-generated method stub
-		
-		for(LineItem orderItem: orderItems) {
-			for(Item inventoryItem: inventory.getItems()) {
-//				System.out.println("orderItemName validate ="+orderItem.getName()+"inventoryItemName="+inventoryItem.getName());
-				if(inventoryItem.getName().equals(orderItem.getName())) {
-//					System.out.println(inventoryItem.getName());
-					if(inventoryItem.getQuantity() < orderItem.getQuantity()) return false;
-				}
-			}
-		}
-		
 		return true;
 	}
 
 	@Override
-	public boolean updateInventory(List<LineItem> orderItems) {
+	public boolean updateInventory(List<Item> orderItems) {
 		// TODO Auto-generated method stub
-		for(LineItem it: orderItems) {
-			for(Item it2: inventory.getItems()) {
-//				System.out.println("update orderItemName="+it.getName()+"inventoryItemName="+it2.getName());
-				if(it.getName().equals(it2.getName())) {
-					it2.setQuantity(it2.getQuantity()-it.getQuantity());
-//					System.out.println("Game updated after="+inventory.getItems());
-				}
-			}
-		}
-		
 		return true;
 	}
 
