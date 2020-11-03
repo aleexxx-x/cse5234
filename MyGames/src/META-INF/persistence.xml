@@ -3,8 +3,8 @@
 	<persistence-unit name="MyGames">
 		<jta-data-source>jdbc/h2</jta-data-source>
 		<class>edu.osu.cse5234.model.Order</class>
-		<class>edu.osu.cse5234.model.PaymentInfo</class>
 		<class>edu.osu.cse5234.model.LineItem</class>
+		<class>edu.osu.cse5234.model.PaymentInfo</class>
 		<class>edu.osu.cse5234.model.ShippingInfo</class>
 		<properties>
 			<property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.H2Platform"/>

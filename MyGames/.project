@@ -3,8 +3,6 @@
 	<name>MyGames</name>
 	<comment></comment>
 	<projects>
-		<project>MyGames-InventoryManagement-EJBClient</project>
-		<project>MyGames-InventoryManagement-EJB</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
