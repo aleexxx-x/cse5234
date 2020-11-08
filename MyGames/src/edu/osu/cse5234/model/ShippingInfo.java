@@ -1,5 +1,7 @@
 package edu.osu.cse5234.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,9 @@ import javax.persistence.Transient;
 @Entity
 @Table(name="SHIPPING_INFO")
 
-public class ShippingInfo {
+public class ShippingInfo implements Serializable{
+	private static final long serialVersionUID = -6617532454735265380L;
+
 	@Transient
 	private String name;
 	

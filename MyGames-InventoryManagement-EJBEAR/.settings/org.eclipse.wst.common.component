@@ -5,7 +5,7 @@
             <dependent-object/>
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="MyGames-InventoryManagement-EJBClient.jar" deploy-path="/" handle="module:/resource/MyGames-InventoryManagement-EJBClient/MyGames-InventoryManagement-EJBClient">
+        <dependent-module archiveName="MyGames-InventoryManagement-EJBClient.jar" deploy-path="/lib" handle="module:/resource/MyGames-InventoryManagement-EJBClient/MyGames-InventoryManagement-EJBClient">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

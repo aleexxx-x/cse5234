@@ -1,4 +1,6 @@
 package edu.osu.cse5234.business.view;
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +11,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="ITEM")
 
-public class Item {
+public class Item implements Serializable {
+	private static final long serialVersionUID = -2079586076501858596L;
+
 	@Column(name="NAME") 
 	public String name;
 	
@@ -17,7 +21,7 @@ public class Item {
 	public String price;
 	
 	@Column(name="AVAILABLE_QUANTITY") 
-	public int quantity;
+	public String quantity;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,7 +41,7 @@ public class Item {
 	public Item(String name, String price, int itemNumber, String description) {
 		this.name = name;
 		this.price = price;
-		this.quantity = 0;
+		this.quantity = "0";
 		this.itemNumber = itemNumber;
 		this.description = description;
 	}
@@ -70,14 +74,14 @@ public class Item {
 	/**
 	 * @return the quantity
 	 */
-	public int getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
 
 	/**
 	 * @param quantity the quantity to set
 	 */
-	public void setQuantity(int quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 	/**

@@ -58,6 +58,8 @@ th {
 				</tr>
 				<c:forEach items="${inventory.items}" var="item" varStatus="loop">
 					<tr>
+						<td><c:out value="${item.name}"></c:out></td>
+						<td><c:out value="$${item.unitPrice}"></c:out></td>
 						<td><form:hidden path="lineItems[${loop.index}].name"
 								value="${item.name}" size="60" /></td>
 						<td><form:hidden path="lineItems[${loop.index}].price"

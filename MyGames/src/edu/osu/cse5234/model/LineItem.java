@@ -1,5 +1,7 @@
 package edu.osu.cse5234.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,9 @@ import javax.persistence.Transient;
 @Entity
 @Table(name="CUSTOMER_ORDER_LINE_ITEM")
 
-public class LineItem {
+public class LineItem implements Serializable{
+	private static final long serialVersionUID = -4110290914115564440L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="ID")
@@ -24,10 +28,10 @@ public class LineItem {
 	private String name;
 	
 	@Transient
-	private double price;
+	private String price;
 	
 	@Column(name="QUANTITY")
-	private int quantity;
+	private String quantity;
 	
 	public int getId() {
 		return id;
@@ -48,16 +52,16 @@ public class LineItem {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
-	public int getQuantity() {
+	public String getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
+	public void setQuantity(String quantity) {
 		this.quantity = quantity;
 	}
 	
@@ -65,7 +69,7 @@ public class LineItem {
 	public LineItem() {
 		super();
 	}
-	public LineItem(int id, int itemNumber, String name, double price, int quantity) {
+	public LineItem(int id, int itemNumber, String name, String price, String quantity) {
 		super();
 		this.id = id;
 		this.itemNumber = itemNumber;

@@ -16,6 +16,7 @@ import java.util.Set;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 /**
  * Session Bean implementation class InventoryServiceBean
@@ -34,20 +35,9 @@ public class InventoryServiceBean implements InventoryService {
 	
     public InventoryServiceBean() {
         // TODO Auto-generated constructor stub
-    	Inventory inventory = new Inventory();
-    	
-    	List<Item> inventoryItems = new ArrayList<>();
-    	Item it1 = new Item("PUBG", "100", 1, "This is the PUBG Game");
-    	Item it2 = new Item("Fortnite", "200", 2, "This is the Fortnite Game");
-    	Item it3 = new Item("Batman Returns!", "300", 3, "This is the Batman Returns Game");
+		Inventory inventory = new Inventory();
 		
-    	inventoryItems.add(it1);
-		inventoryItems.add(it2);
-		inventoryItems.add(it3);
-		
-		inventory.setItems(inventoryItems);
 		this.inventory = inventory;
-		
     }
     
 	/**
@@ -66,8 +56,9 @@ public class InventoryServiceBean implements InventoryService {
 	@Override
 	public Inventory getAvailableInventory() {
 		// TODO Auto-generated method stub
-		Inventory available = (Inventory) entityManager.createQuery(MY_QUERY, Item.class).getResultList();
-		return available;
+		List<Item> items = entityManager.createQuery(MY_QUERY, Item.class).getResultList();
+		inventory.setItems(items);
+		return inventory;
 	}
 
 	@Override

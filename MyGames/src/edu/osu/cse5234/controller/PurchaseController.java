@@ -1,9 +1,7 @@
 package edu.osu.cse5234.controller;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,12 +24,13 @@ import edu.osu.cse5234.util.ServiceLocator;
 @Controller
 @RequestMapping("/purchase")
 public class PurchaseController {
-	InventoryService inventoryService = ServiceLocator.getInventoryService();
+	
 
 	@RequestMapping(path= "/orderEntry", method = RequestMethod.GET)
 	public String viewOrderEntryForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// ... instantiate and set order object with items to display
-		Inventory inventory = this.inventoryService.getAvailableInventory();
+		InventoryService inventoryService = ServiceLocator.getInventoryService();
+		Inventory inventory = inventoryService.getAvailableInventory();
 		request.setAttribute("inventory", inventory);
 		
 		List<LineItem> orderItems = new ArrayList<>();

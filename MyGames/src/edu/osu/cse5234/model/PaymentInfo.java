@@ -1,5 +1,7 @@
 package edu.osu.cse5234.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,8 +12,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="PAYMENT_INFO")
 
-public class PaymentInfo {
-	
+public class PaymentInfo implements Serializable {
+	private static final long serialVersionUID = 8303689956774972575L;
+
 	@Column(name="CARD_NUM")
 	private String creditCardNumber;
 	
