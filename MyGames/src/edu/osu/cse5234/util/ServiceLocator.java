@@ -3,7 +3,6 @@ package edu.osu.cse5234.util;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
-import edu.osu.cse5234.business.InventoryServiceBean;
 import edu.osu.cse5234.business.OrderProcessingServiceBean;
 import edu.osu.cse5234.business.view.InventoryService;
 
