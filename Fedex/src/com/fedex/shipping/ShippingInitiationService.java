@@ -33,7 +33,7 @@ public class ShippingInitiationService extends Application {
 		int numberOfItemsToShip = incomingJson.getInt("ItemsCount");
 		String zip = incomingJson.getString("Zip");
 
-		System.out.println("UPS\n===\n" + organization 
+		System.out.println("Fedex\n===\n" + organization 
 				+ " requested shipping of " + numberOfItemsToShip
 				+ " items to ZIP: " + zip 
 				+ ", Order Ref: " + orderRefId);

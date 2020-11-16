@@ -1,7 +1,15 @@
 package edu.osu.cse5234.business;
 
+import java.util.Date;
+
+import javax.annotation.Resource;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
+import javax.jms.ConnectionFactory;
+import javax.jms.JMSConnectionFactory;
+import javax.jms.JMSContext;
+import javax.jms.Queue;
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.persistence.EntityManager;
@@ -25,19 +33,40 @@ import edu.osu.cse5234.util.ServiceLocator;
 @Stateless
 @LocalBean
 public class OrderProcessingServiceBean {
-
+	
+	@Resource(name="jms/emailQCF", lookup="jms/emailQCF", type=ConnectionFactory.class)
     /**
      * Default constructor. 
      */
+	@Inject
+	@JMSConnectionFactory("java:comp/env/jms/emailQCF")
+	private JMSContext jmsContext;
+
+	@Resource(lookup="jms/emailQ")
+	private Queue queue;
+
 	Inventory inventory;
 	private static String SHIPPING_URI = "http://localhost:9080/UPS/services/shipping";
 	@PersistenceContext(unitName="MyGames") protected EntityManager entityManager;
+	
+	private static final String customerEmail = "Customer Email";
 	
     public OrderProcessingServiceBean() {
         // TODO Auto-generated constructor stub
     	this.inventory = ServiceLocator.getInventoryService().getAvailableInventory();
     }
     
+    private void notifyUser() {
+		String message = customerEmail + ":" +
+		       "Your order was successfully submitted. " + 
+		     	"You will hear from us when items are shipped. " + 
+		      	new Date();
+	
+		System.out.println("Sending message: " + message);
+		jmsContext.createProducer().send(queue, message);
+		System.out.println("Message Sent!");
+	}
+
     public String processOrder(Order order) {		
 		entityManager.persist(order);
 		entityManager.flush();
@@ -55,7 +84,8 @@ public class OrderProcessingServiceBean {
 		}
 		
 		String orgName = "My Games INC";
-		String orgRefId = "#114-5460846-3776203";
+		String orderId = "#114-5460846-3776203";
+		int orderRefId = 90087;
 		int totalItems = 0;
 		for(LineItem li: order.getItems())
 			totalItems += Integer.parseInt(li.getQuantity());
@@ -67,7 +97,7 @@ public class OrderProcessingServiceBean {
 				
 		JsonObject requestJson = Json.createObjectBuilder()
 		.add("Organization", orgName)
-		.add("OrderRefId", orgRefId)
+		.add("OrderRefId", orderRefId)
 		.add("ItemsCount", totalItems)
 		.add("Zip", zipCode)
 		.build();
@@ -76,14 +106,14 @@ public class OrderProcessingServiceBean {
 		.request(MediaType.APPLICATION_JSON)
 		.post(Entity.json(requestJson), JsonObject.class);
 
-		System.out.println("UPS accepted request? " +   
+		System.out.println("Fedex accepted request? " +   
 		     responseJson.getBoolean("Accepted"));
 		System.out.println("Shipping Reference Number: " + 
 		     responseJson.getInt("ShippingReferenceNumber"));
 
 		client.close();
 
-		return orgRefId;
+		return orderId;
 	}
     
     public boolean validateItemAvailability(Order order) {
